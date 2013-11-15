@@ -1,6 +1,6 @@
 todo.vim
 ========
-Simple vim syntax highlighting for todo lists
+Simple syntax highlighting for todo lists in vim
 
 Setup
 -----
