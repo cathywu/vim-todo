@@ -1,4 +1,4 @@
-vim.todo
+todo.vim
 ========
 Simple vim syntax highlighting for todo lists
 
@@ -8,12 +8,8 @@ Setup
 
 Optional setup for .vimrc
 ----------------------------
-Add the following lines to your `~/.vimrc
+Optionally add the following lines to your `~/.vimrc`. This maps the `<F2>`, `<F3>` keys to insert current/future date headings.
 
-    " Recommended color scheme
-    set background=dark
-    colorscheme desert256
-    
     " Map function keys to print formatted new dates
     if has("unix")
         let s:uname = system("uname")
@@ -41,6 +37,6 @@ Add the following lines to your `~/.vimrc
 
 Usage
 -----
-Create a file with a `.todo` extension.
+Create a file with a `.todo` extension and start typing. That's it!
 
 ![Sample usage of vim.todo](sample.png "Sample usage")

@@ -1,7 +1,13 @@
 " Syntax highlighting for .todo files
 " @author cathywu
+
+" Set color scheme
+colorscheme desert256
+
+" Enable auto folds
 setlocal foldmethod=indent
 
+" Regular expressions
 " bug: chinese characters break matching
 " see http://tech.groups.yahoo.com/group/vim/message/94968
 syn match brackets /\[\p\+\]/ skipwhite
@@ -18,6 +24,7 @@ syn match category /^\(\w\+[.-]\{-}\)\+:/ skipwhite
 syn match donetask /\p\+$/ contained skipwhite
 syn match removed /^-\s\p\+/ skipwhite
 
+" Syntax highlighting
 hi link day Comment 
 hi link today Statement
 hi link delimit Normal
