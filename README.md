@@ -6,6 +6,12 @@ Setup
 -----
     mv vim.todo ~/.vim/syntax/vim.todo
 
+Usage
+-----
+Create a file with a `.todo` extension and start typing. That's it!
+
+![Sample usage of vim.todo](sample.png "Sample usage")
+
 Optional setup for .vimrc
 ----------------------------
 Optionally add the following lines to your `~/.vimrc`. This maps the `<F2>`, `<F3>` keys to insert current/future date headings.
@@ -35,8 +41,3 @@ Optionally add the following lines to your `~/.vimrc`. This maps the `<F2>`, `<F
         endif
     endif
 
-Usage
------
-Create a file with a `.todo` extension and start typing. That's it!
-
-![Sample usage of vim.todo](sample.png "Sample usage")
