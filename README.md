@@ -4,7 +4,7 @@ Simple vim syntax highlighting for todo lists
 
 Setup
 -----
-    mv vim.todo ~/.vim/syntax/vim.todo
+    cp vim.todo ~/.vim/syntax/todo.vim
 
 Usage
 -----
