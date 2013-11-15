@@ -1,0 +1,38 @@
+SAMPLE USAGE of vim.todo
+
+================================================================================
+Fri 11-15-2013
+================================================================================
+
+goal: run 5 miles
+
+Heading (or however you want to organize it)
+--------------------------------------------------------------------------------
++ completed task
++ completed task
++ completed task
+- expired task (tasks you don't need to do anymore)
+- expired task
+other task
+other task
+heading: another task
+task [annotation]
+task [http://www.somewebsite.com]
+see below examples
+
+
+Chores
+--------------------------------------------------------------------------------
++ take out the trash
+
+School
+--------------------------------------------------------------------------------
+review EE101 HW3
++ study for EE101 midterm
+- ask about matrix rotations
+watch this lecture [http://www.youtube.com/somethingsomething]
+
+================================================================================
+Thu 11-14-2013
+================================================================================
+...
