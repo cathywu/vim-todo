@@ -16,7 +16,7 @@ Optional setup for .vimrc
 ----------------------------
 Optionally add the following lines to your `~/.vimrc`. This maps the `<F2>`, `<F3>` keys to insert current/future date headings.
 
-    Map function keys to print formatted new dates
+    " Map function keys to print formatted new dates
     if has("unix")
         let s:uname = system("uname")
         if s:uname == "Darwin\n"
