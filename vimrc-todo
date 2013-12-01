@@ -1,4 +1,15 @@
-" Map function keys to print formatted new dates
+" Partial vimrc file for keybindings specific to vim-todo
+
+" Utility functions
+function! Strip(input_string)
+    return substitute(a:input_string, '^\s*\(.\{-}\)\s*$', '\1', '')
+endfunction
+
+function! StripN(input_string)
+    return substitute(Strip(a:input_string), "\n", "", "")
+endfunction
+
+" Select OS-dependent date utility
 if has("unix")
     let s:uname = system("uname")
     if s:uname == "Darwin\n"
@@ -19,6 +30,7 @@ function! InsertDate(offset)
 endfunction
 command! -nargs=1 InsertDate call InsertDate(<f-args>)
 
+" Insert date in heading format with 80-character bars of "="
 function! DateHeading(offset)
     let l:bar = "o\<ESC>80i=\<ESC>" 
     if a:offset == "0"
@@ -29,6 +41,7 @@ function! DateHeading(offset)
 endfunction
 command! -nargs=1 DateHeading call DateHeading(<f-args>)
 
+" Map function keys to print formatted new dates
 noremap <F2> :DateHeading 0<CR>
 noremap <F3> :DateHeading 1<CR>
 noremap <F4> :DateHeading 2<CR>
@@ -36,4 +49,15 @@ noremap <F5> :DateHeading 3<CR>
 noremap <F6> :DateHeading 4<CR>
 noremap <F7> :DateHeading 5<CR>
 noremap <F8> :DateHeading 6<CR>
+
+" Jump to date, given offset from current date
+function! GoToDate(offset)
+    let l:format = "\'+\%a \%m-\%d-\%Y\'" 
+    let l:date = StripN(system(s:dateutil . " -d'". a:offset . " day' " . l:format))
+    call search(l:date, "w")
+endfunction
+command! -nargs=1 GoToDate call GoToDate(<f-args>)
+command! Today call GoToDate(0)
+" Map <Shift-T> to jump to current date
+noremap <S-T> :Today<CR>
 
