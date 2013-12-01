@@ -1,0 +1,39 @@
+" Map function keys to print formatted new dates
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        " OSX has a dumb date utility, so use the Unix one
+        " Setting the path in vim seems non-trivial, so directly call the
+        " correct executable (vs. /bin/date)
+        let s:dateutil = "/usr/local/opt/coreutils/libexec/gnubin/date"
+    else
+        let s:dateutil = "date"
+    endif
+endif
+
+" Insert date into current buffer, given offset from current date
+function! InsertDate(offset)
+    " cmd: date -d'N day' +%a %m-%d-%Y
+    let l:format = "\'+\\%a \\%m-\\%d-\\%Y\'" 
+    execute ":r !" . s:dateutil . " -d\'". a:offset . " day\' " . l:format
+endfunction
+command! -nargs=1 InsertDate call InsertDate(<f-args>)
+
+function! DateHeading(offset)
+    let l:bar = "o\<ESC>80i=\<ESC>" 
+    if a:offset == "0"
+        execute "normal " . l:bar . ":InsertDate " . a:offset . "\<CR>I>> \<ESC>" . l:bar . "o\<ESC>"
+    else
+        execute "normal " . l:bar . ":InsertDate " . a:offset . "\<CR>" . l:bar . "o\<ESC>"
+    endif
+endfunction
+command! -nargs=1 DateHeading call DateHeading(<f-args>)
+
+noremap <F2> :DateHeading 0<CR>
+noremap <F3> :DateHeading 1<CR>
+noremap <F4> :DateHeading 2<CR>
+noremap <F5> :DateHeading 3<CR>
+noremap <F6> :DateHeading 4<CR>
+noremap <F7> :DateHeading 5<CR>
+noremap <F8> :DateHeading 6<CR>
+
