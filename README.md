@@ -4,7 +4,15 @@ Simple syntax highlighting for todo lists in vim
 
 Setup
 -----
-    cp todo.vim ~/.vim/syntax/todo.vim
+    cp syntax/todo.vim ~/.vim/syntax/
+    cp ftdetect/todo.vim ~/.vim/ftdetect/
+    cp colors/desert256.vim ~/.vim/colors/
+
+Make sure to have the following lines in your `.vimrc`:
+
+    set t_Co=256
+    set background=dark
+    colorscheme desert256
 
 Usage
 -----
