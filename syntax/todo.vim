@@ -17,7 +17,7 @@ syn match day /^\w\{3}\s\d\{2}-\d\{2}-\d\{4}/ nextgroup=delimit skipwhite
 syn match today /^>>\s\w\{3} \d\{2}-\d\{2}-\d\{4}/ nextgroup=delimit skipwhite
 
 syn match week /^\w\{4}\s\d\{2}-\d\{2}-\d\{4}/ nextgroup=delimit skipwhite
-syn match thisweek /^><\s\w\{4} \d\{2}-\d\{2}-\d\{4}/ nextgroup=delimit skipwhite
+syn match thisweek /^>>\s\w\{4} \d\{2}-\d\{2}-\d\{4}/ nextgroup=delimit skipwhite
 
 syn match delimit /,\s/ nextgroup=status contained skipwhite
 syn match status /\p\+$/ contained skipwhite
