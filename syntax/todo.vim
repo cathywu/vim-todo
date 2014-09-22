@@ -15,6 +15,10 @@ syn match link /\[\(http\|www\)\p\+\]/ skipwhite
 
 syn match day /^\w\{3}\s\d\{2}-\d\{2}-\d\{4}/ nextgroup=delimit skipwhite
 syn match today /^>>\s\w\{3} \d\{2}-\d\{2}-\d\{4}/ nextgroup=delimit skipwhite
+
+syn match week /^\w\{4}\s\d\{2}-\d\{2}-\d\{4}/ nextgroup=delimit skipwhite
+syn match thisweek /^><\s\w\{4} \d\{2}-\d\{2}-\d\{4}/ nextgroup=delimit skipwhite
+
 syn match delimit /,\s/ nextgroup=status contained skipwhite
 syn match status /\p\+$/ contained skipwhite
 
@@ -27,6 +31,10 @@ syn match removed /^-\s\p\+/ skipwhite
 " Syntax highlighting
 hi link day Comment 
 hi link today Statement
+
+hi link week Comment
+hi link thisweek Statement
+
 hi link delimit Normal
 hi link status PreProc
 
